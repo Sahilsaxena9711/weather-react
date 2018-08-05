@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../style/index.css'
+import '../style/index.css'
 import axios from 'axios';
 import Form from '../component/Form';
 import WeatherDisplay from '../component/WeatherDisplay'
@@ -16,12 +16,8 @@ class Weather extends React.Component{
         }
         this.submitCity = this.submitCity.bind(this);
     }
-    componentWillReceiveProps(props){
-        console.log(props);
-        
-    }
+
     submitCity(city){
-        // axios.get(`https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='${city}')&format=json`,)
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c0ae38f85cf20362c16d54ed0e88f312`)
         .then((response)=> {
             this.setState({
@@ -41,25 +37,26 @@ class Weather extends React.Component{
     render(){
         return(
             <div>
-                <div className={this.state.condition}>    
+                <div className={this.state.condition}>   
+                    <div className="row header">
+                        <div className="col-sm-offset-10 col-sm-2" style={{padding: '0px'}}>
+                            <About />
+                        </div>
+                    </div> 
                     <div className="row">
                         <div className="col-sm-offset-4 col-sm-4 content">
-                            
                             <Form 
                             submitCity = {this.submitCity}
                             />
-
                             <WeatherDisplay
                             {...this.props}
                             data = {this.state.data}
                             temprature = {this.state.temprature}
                             condition = {this.state.condition}
                             />
-
                         </div>
                     </div>
                 </div>
-                <About />
             </div>
         );
     }
