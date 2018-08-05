@@ -183,7 +183,7 @@ body {
 }
 
 .white-board{
-  padding: 25px 0px 25px 0px;
+  padding: 20px 0px 20px 0px;
   background: white;
   opacity: 0.9;
   border-radius: 10px;
@@ -197,10 +197,13 @@ body {
 .git-logo{
   cursor: pointer;
   margin-left: 10px;
+  font-size: 40px;
+}
+.git-logo:hover{
+  opacity: 0.5;
 }
 
 .header{
-  position: fixed;
   width: 100%;
   text-align: right;
   top: 0;
@@ -212,7 +215,7 @@ body {
     margin: auto;
   }
   .city-input{
-    margin-top: 12vh;
+    margin-top: 3vh;
     height: 35px;
     padding: 2px 5px 2px 15px;
     font-size: 16px;
