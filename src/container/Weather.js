@@ -41,7 +41,7 @@ class Weather extends React.Component{
             <div>
                 <div className={this.state.condition}>   
                     <div className="row header">
-                        <div className="col-sm-offset-10 col-sm-2" style={{padding: '0px'}}>
+                        <div className="col-sm-offset-6 col-sm-6" style={{padding: '0px'}}>
                             <About />
                         </div>
                     </div> 
