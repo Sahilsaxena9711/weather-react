@@ -2,8 +2,8 @@ import React from 'react';
 import '../style/index.css'
 import axios from 'axios';
 import Form from '../component/Form';
-import WeatherDisplay from '../component/WeatherDisplay'
-import About from '../component/About'
+import WeatherDisplay from '../component/WeatherDisplay';
+import About from '../component/About';
 
 class Weather extends React.Component{
     constructor(props){
@@ -12,12 +12,14 @@ class Weather extends React.Component{
             temprature:  '',
             condition:   'background',
             data:        {},
+            error:       false,
             diaplaydata: false
         }
         this.submitCity = this.submitCity.bind(this);
     }
 
     submitCity(city){
+        this.setState({error: false})
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c0ae38f85cf20362c16d54ed0e88f312`)
         .then((response)=> {
             this.setState({
@@ -27,7 +29,7 @@ class Weather extends React.Component{
                 condition:   response.data.weather[0].main
             })
         }).catch((error)=> {
-            console.log(error);
+            alert('Error! Invalid City/Country name')
         })
     }
     componentWillReceiveProps(props){

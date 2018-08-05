@@ -10,18 +10,27 @@ class Form extends React.Component{
         this.onSubmitCity = this.onSubmitCity.bind(this);
     }
 
-    onSubmitCity(){
+    handleKeyPress(e){
+        if (e.key === 'Enter') {
+            this.onSubmitCity(e);
+        }
+    }
+
+    onSubmitCity = (e) => {
+        e.preventDefault();
         this.props.submitCity(this.state.city);
     }
 
     render(){
         return(
-            <div>
-                <input type="text" className="city-input" placeholder="Enter City/Country" value={this.state.city} onClick={() => this.setState({city: ''})} onChange={(e) => this.setState({city: e.target.value})}/>
-                <br/>
-                <button onClick={() => this.onSubmitCity()} className="search-button">
-                    Explore
-                </button>
+            <div onKeyPress={(e) => this.handleKeyPress(e)}>
+                <form onSubmit={(event) => this.onSubmitCity(event)} >
+                    <input type="text" className="city-input" placeholder="Enter City/Country" value={this.state.city} onChange={(e) => this.setState({city: e.target.value})} required/>
+                    <br/>
+                    <button type="submit" className="search-button">
+                        Explore
+                    </button>
+                </form>
             </div>
         )
     }
