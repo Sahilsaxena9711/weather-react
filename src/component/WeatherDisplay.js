@@ -11,15 +11,12 @@ class WeatherDisplay extends React.Component{
     }
 
     componentWillReceiveProps(props){
-        console.log(props);
         this.setState({
             data: props.data
         })
     }
 
     render(){
-        console.log();
-        
         return(
             <div>
                  {_.isEmpty(this.state.data) ? 
