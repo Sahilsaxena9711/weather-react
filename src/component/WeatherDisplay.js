@@ -32,6 +32,8 @@ class WeatherDisplay extends React.Component{
                                 :
                             this.props.condition === 'Haze' ? <Ionicon icon="ios-cloudy" fontSize="85px"/>
                                 :
+                            this.props.condition === 'Thunderstorm' ? <Ionicon icon="ios-thunderstorm" fontSize="85px"/>
+                                :
                             <Ionicon icon="md-rainy" fontSize="85px" />                            
                         }
                     </div>
