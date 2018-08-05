@@ -24,8 +24,8 @@ class WeatherDisplay extends React.Component{
             <div>
                  {_.isEmpty(this.state.data) ? 
                  null : 
-                 <div className="col-sm-12 white-board">
-                    <div className="col-sm-3 content">
+                 <div className="white-board">
+                    <div>
                         { 
                             this.props.condition === 'Clear' ? <Ionicon icon="ios-sunny" fontSize="85px"/>
                             : 
@@ -38,7 +38,7 @@ class WeatherDisplay extends React.Component{
                             <Ionicon icon="md-rainy" fontSize="85px" />                            
                         }
                     </div>
-                    <div className="col-sm-9 content">
+                    <div >
                         <span className="temp-cond">Temprature: {this.props.temprature.toFixed(1)}°C</span><br />
                         <span className="temp-cond">Weather: {this.props.condition}</span><br />
                         <span className="temp-cond">Humidity: {this.state.data.main.humidity}%</span><br />
