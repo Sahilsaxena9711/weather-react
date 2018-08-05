@@ -16,6 +16,20 @@ body {
   transition: 1s;
 }
 
+.Thunderstorm{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(" ../assets/thunderstarm.jpg");
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  transition: 1s;
+}
+
 .Drizziling{
   background-position: center center;
   background-repeat: no-repeat;
