@@ -12,8 +12,7 @@ class Weather extends React.Component{
             temprature:  '',
             condition:   'background',
             data:        {},
-            error:       false,
-            diaplaydata: false
+            error:       false
         }
         this.submitCity = this.submitCity.bind(this);
     }
@@ -23,7 +22,6 @@ class Weather extends React.Component{
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c0ae38f85cf20362c16d54ed0e88f312`)
         .then((response)=> {
             this.setState({
-                diaplaydata: true,
                 data:        response.data,
                 temprature:  response.data.main.temp - 273.15,
                 condition:   response.data.weather[0].main
