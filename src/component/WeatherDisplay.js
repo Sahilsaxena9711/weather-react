@@ -17,6 +17,8 @@ class WeatherDisplay extends React.Component{
     }
 
     render(){
+        const high = this.state.data.main == undefined ? null : (this.state.data.main.temp_max  - 273.15).toFixed(1);
+        const low = this.state.data.main == undefined ? null : (this.state.data.main.temp_min - 273.15).toFixed(1);
         return(
             <div>
                  {_.isEmpty(this.state.data) ? 
@@ -41,7 +43,7 @@ class WeatherDisplay extends React.Component{
                         <span className="temp-cond">Temprature: {this.props.temprature.toFixed(1)}°C</span><br />
                         <span className="temp-cond">Weather: {this.props.condition}</span><br />
                         <span className="temp-cond">Humidity: {this.state.data.main.humidity}%</span><br />
-                        <span className="temp-cond">High: {this.state.data.main.temp_max  - 273.15}°C, Low: {this.state.data.main.temp_min - 273.15}°C</span>
+                        <span className="temp-cond">High: {high}°C, Low: {low}°C</span>
                     </div>
                  </div>
                  }
